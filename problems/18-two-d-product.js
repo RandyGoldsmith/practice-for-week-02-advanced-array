@@ -25,13 +25,20 @@ console.log(twoDimensionalProduct(arr2)); // 88
 
 */
 
-let twoDimensionalProduct = function(arr) {
-    // Your code here
+let twoDimensionalProduct = function (arr) {
+  // Your code here
+  let total = 1;
+  arr.map((numArr) => {
+    numArr.map((num) => {
+      total *= num;
+    });
+  });
+  return total;
 };
 /**************DO NOT MODIFY ANYTHING UNDER THIS  LINE*****************/
 
 try {
-    module.exports = twoDimensionalProduct;
+  module.exports = twoDimensionalProduct;
 } catch (e) {
-    module.exports = null;
+  module.exports = null;
 }
