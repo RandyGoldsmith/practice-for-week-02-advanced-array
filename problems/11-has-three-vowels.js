@@ -20,28 +20,20 @@ let hasThreeVowels = function (string) {
   // Your code here
   let vowels = "aeiou";
   let usedVowels = [];
-  let newArr = string.split(" ");
+  let newArr = string.split("");
 
-  newArr.reduce((prev, curr) => {
-    if (vowels.includes(curr) && !usedVowels.includes(curr)) {
-      usedVowels.push(curr);
-    }
-  });
-  console.log(usedVowels);
-};
-
-function isVowel(word) {
-  let newArr = word.split(" ");
-  let vowels = "aeiou";
-  let usedVowels = [];
-
-  return newArr.map((letter) => {
-    if (vowels.includes(letter)) {
+  newArr.map((letter) => {
+    if (vowels.includes(letter) && !usedVowels.includes(letter)) {
       usedVowels.push(letter);
     }
-    return usedVowels;
   });
-}
+
+  if (usedVowels.length >= 3) {
+    return true;
+  } else {
+    return false;
+  }
+};
 
 // Your code here
 

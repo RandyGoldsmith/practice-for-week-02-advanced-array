@@ -30,6 +30,17 @@ console.log(repeatingTranslate("her family flew to France"));   // "herer family
 
 let repeatingTranslate = function (sentence) {
   // Your code here
+  let senArray = sentence.split(" ");
+  let newSent = [];
+
+  senArray.map((word) => {
+    if (word.length < 3) {
+      newSent.push(word);
+    } else {
+      newSent.push(translateWord(word));
+    }
+  });
+  return newSent.join(" ");
 };
 
 let translateWord = function (word) {
@@ -37,10 +48,12 @@ let translateWord = function (word) {
   let vowels = "aeiou";
   let lastChar = word[word.length - 1];
 
+  //if last char is a vowel, print the word twice
   if (vowels.includes(lastChar)) {
     return word + word;
   }
 
+  //if last char is not a vowel, add the word, plus the last vowel and char after it
   let i = word.length - 1;
   while (i >= 0) {
     if (vowels.includes(word[i])) {
